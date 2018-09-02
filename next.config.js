@@ -24,7 +24,8 @@ module.exports = {
 
     // combine the map of post pages with the home
     return Object.assign({}, pages, {
-      '/': { page: '/' }
+      '/': { page: '/' },
+      '/about': { page: '/about'}
     })
   },
   assetPrefix: assetPrefix,

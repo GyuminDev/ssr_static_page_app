@@ -8,6 +8,8 @@ import Layout from "../layouts/main";
 
 const Container = styled.section`
 	padding: 50px;
+	height: auto;
+	min-height: 500px;
 	display: flex;
 	align-items: center;
 	flex-direction: column;
