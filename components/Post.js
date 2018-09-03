@@ -4,12 +4,19 @@ import PropTypes from 'prop-types'
 
 const Container = styled.div`
 	background-color:white;
-  width: 400px;
-  display: flex;
+	-webkit-appearance: none;
+	width: 500px;
+  display: inline-block;
   flex-direction: column;
   margin-bottom: 30px;
   padding: 10px;
   box-shadow: 0 8px 38px rgba(133, 133, 133, 0.3), 0 5px 12px rgba(133, 133, 133, 0.22);
+    @media screen and (min-width: 320px) and (max-width: 667px){
+     width: 100px;
+ 	}
+ 	@media screen and (min-width: 320px) and (max-width: 667px) and (orientation: portrait) {
+    width: 100%;
+	}
 `
 const ContainerHeader = styled.div`
 	display: flex;
@@ -28,6 +35,7 @@ const Title = styled.div`
 `
 const Description = styled.div`
 	width: 100%;
+	padding-left: 10px;
 	align-self: flex-start;
 `
 const ContainerFooter = styled.div`
@@ -37,6 +45,11 @@ const ContainerFooter = styled.div`
 `
 const Button = styled.button`
 	align-self: flex-end;
+	padding: 10px;
+	background-color: #2c3e50;
+	color: white;
+	font-weight: 100;
+  cursor: pointer;
 `
 
 

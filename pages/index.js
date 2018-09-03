@@ -10,6 +10,7 @@ const Container = styled.section`
 	padding: 50px;
 	height: auto;
 	min-height: 500px;
+	-webkit-appearance: none;
 	display: flex;
 	align-items: center;
 	flex-direction: column;
@@ -22,14 +23,12 @@ const _getConvertDate = (date) => {
 const Index = ({postList}) => (
 	<main>
 		<Layout title="GM Ground">
-			<Container>
 				{postList.map(post =>
 					<Post name={post.name}
 					      description={post.description}
 					      created_at={_getConvertDate(post.created_at)}
 					      key={post.name}
 					/>)}
-			</Container>
 		</Layout>
 	</main>
 )
