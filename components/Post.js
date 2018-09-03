@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import Link from 'next/link'
 import PropTypes from 'prop-types'
+import LineEllipsis from 'react-lines-ellipsis'
 
 const Container = styled.div`
 	background-color:white;
@@ -9,7 +10,7 @@ const Container = styled.div`
   display: inline-block;
   flex-direction: column;
   margin-bottom: 30px;
-  padding: 10px;
+  padding: 20px;
   box-shadow: 0 8px 38px rgba(133, 133, 133, 0.3), 0 5px 12px rgba(133, 133, 133, 0.22);
     @media screen and (min-width: 320px) and (max-width: 667px){
      width: 100px;
@@ -37,6 +38,9 @@ const Description = styled.div`
 	width: 100%;
 	padding-left: 10px;
 	align-self: flex-start;
+	text-overflow: ellipsis;
+	color: #7f8c8d;
+	overflow: hidden;
 `
 const ContainerFooter = styled.div`
 	display: flex;
@@ -45,6 +49,7 @@ const ContainerFooter = styled.div`
 `
 const Button = styled.button`
 	align-self: flex-end;
+	margin-top: 10px;
 	padding: 10px;
 	background-color: #2c3e50;
 	color: white;
@@ -62,7 +67,15 @@ function Post({name, description, created_at}) {
 				</Title>
 				<Created_at>{created_at}</Created_at>
 			</ContainerHeader>
-			<Description>{description}</Description>
+			<Description>
+				<LineEllipsis
+					text={description}
+					maxLine='2'
+					ellipsis=' ...'
+					trimRight
+					basedOn='letters'
+				/>
+			</Description>
 			<ContainerFooter>
 				<Link href={{pathname: '/post', query: {name: name}}} as={`${process.env.ASSET_PREFIX}/post/${name}`}>
 					<Button>Read more...</Button>
