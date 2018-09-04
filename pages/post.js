@@ -8,10 +8,17 @@ import {base64} from 'js-base64'
 import Layout from "../layouts/main";
 
 const Container = styled.div`
-	padding: 10px 10px 50px 50px;
+	padding: 10px 10px 10px 10px;
 	display: inline-block;
 	justify-content: center;
 	align-items: center;
+	width: 900px;
+	 @media screen and (min-width: 320px) and (max-width: 667px){
+     width: 100px;
+ 	}
+ 	@media screen and (min-width: 320px) and (max-width: 667px) and (orientation: portrait) {
+    width: 90%;
+	}
 `
 
 const Post = ({title, decoded}) => (

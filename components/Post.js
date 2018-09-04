@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 import Link from 'next/link'
 import PropTypes from 'prop-types'
-import LineEllipsis from 'react-lines-ellipsis'
 
 const Container = styled.div`
 	background-color:white;
@@ -16,7 +15,7 @@ const Container = styled.div`
      width: 100px;
  	}
  	@media screen and (min-width: 320px) and (max-width: 667px) and (orientation: portrait) {
-    width: 100%;
+    width: 90%;
 	}
 `
 const ContainerHeader = styled.div`
@@ -38,9 +37,10 @@ const Description = styled.div`
 	width: 100%;
 	padding-left: 10px;
 	align-self: flex-start;
-	text-overflow: ellipsis;
 	color: #7f8c8d;
-	overflow: hidden;
+	overflow: hidden; 
+  text-overflow: ellipsis;
+  white-space: nowrap; 
 `
 const ContainerFooter = styled.div`
 	display: flex;
@@ -68,13 +68,7 @@ function Post({name, description, created_at}) {
 				<Created_at>{created_at}</Created_at>
 			</ContainerHeader>
 			<Description>
-				<LineEllipsis
-					text={description}
-					maxLine='2'
-					ellipsis=' ...'
-					trimRight
-					basedOn='letters'
-				/>
+				{description}
 			</Description>
 			<ContainerFooter>
 				<Link href={{pathname: '/post', query: {name: name}}} as={`${process.env.ASSET_PREFIX}/post/${name}`}>
