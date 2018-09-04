@@ -12,7 +12,8 @@ const Container = styled.div`
 	display: inline-block;
 	justify-content: center;
 	align-items: center;
-	width: 900px;
+	width: 100%;
+	max-width: 800px;
 	 @media screen and (min-width: 320px) and (max-width: 667px){
      width: 100px;
  	}
