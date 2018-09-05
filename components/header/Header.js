@@ -11,13 +11,12 @@ const Container = styled.div`
   align-items: center;
 `
 const BarIcon = styled.i`
-	position: fixed;
+	position: ${props => props.visible ? 'fixed' : 'absolute'};
 	top: 35px;
 	right: 25px;
 	cursor: pointer;
 	color: ${props => props.visible ? 'white' : "black"};
 `
-
 const SideBarImage = styled.img`
 	position: absolute;
 	top: 0;
@@ -45,7 +44,6 @@ class Header extends React.Component {
 		return(
 			<div>
 				<SideBar visible={visible}>
-					<BarIcon visible={visible} className="fas fa-bars fa-2x" onClick={this._onClickIcon}/>
 					<SideBarImage src="/static/image_jacket.jpg"/>
 					<SideBarHeader>GM Ground</SideBarHeader>
 				</SideBar>
