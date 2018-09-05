@@ -13,14 +13,13 @@ module.exports = {
     // tranform the list of posts into a map of pages with the pathname `/post/:id`
     const pages = postList.reduce(
       (pages, post) =>
-        Object.assign({}, pages, {
-          [`/post/${post.name}`]: {
-            page: '/post',
-            query: { name: post.name }
+        Object.assign({}, pages, {[`/post/${post.name}`]: {page: '/post', query: { name: post.name }
           }
         }),
       {}
     )
+
+    console.log(pages)
 
     // combine the map of post pages with the home
     return Object.assign({}, pages, {

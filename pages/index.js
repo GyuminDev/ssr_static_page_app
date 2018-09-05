@@ -1,20 +1,19 @@
 import React from 'react'
-import styled from 'styled-components'
-import fetch from 'isomorphic-unfetch'
+import API from './utils/api'
 import PropTypes from 'prop-types'
 import moment from 'moment'
 import Post from '../components/Post'
 import Layout from "../layouts/main";
 
-const Container = styled.section`
-	padding: 50px;
-	height: auto;
-	min-height: 500px;
-	-webkit-appearance: none;
-	display: flex;
-	align-items: center;
-	flex-direction: column;
-`
+// const Container = styled.section`
+// 	padding: 50px;
+// 	height: auto;
+// 	min-height: 500px;
+// 	-webkit-appearance: none;
+// 	display: flex;
+// 	align-items: center;
+// 	flex-direction: column;
+// `
 
 const _getConvertDate = (date) => {
 	return moment(new Date(date)).format("YYYY-MM-DD a hh:mm") + ' created'
@@ -34,7 +33,7 @@ const Index = ({postList}) => (
 )
 
 Index.getInitialProps = async () => {
-	const response = await fetch('https://api.github.com/users/gmground/repos')
+	const response = await API.requestGetRepos()
 	const postList = await response.json()
 
 	return {postList}

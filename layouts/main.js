@@ -3,6 +3,9 @@ import Header from "../components/Header";
 import Footer from "../components/Footer"
 import Head from 'next/head'
 import React from "react";
+import API from "../pages/utils/api";
+import Post from "../pages/post";
+
 
 const Wrapper = styled.div`
 	padding: 40px 20px 20px 20px;
@@ -33,9 +36,17 @@ function Layout({children, title}) {
 			{children}
 			</Wrapper>
 
-			<Footer/>
+			<Footer title={title}/>
 		</div>
 	)
 }
+//
+// Layout.getInitialProps = async ({query}) => {
+//
+// 	const title = query.name
+// 	console.log(title)
+//
+// 	return {title}
+// }
 
 export default Layout

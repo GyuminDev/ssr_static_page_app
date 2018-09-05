@@ -1,11 +1,11 @@
 import React from 'react'
 import Disqus from 'disqus-react';
+import {base64} from 'js-base64'
+import API from './utils/api'
 import Link from 'next/link'
 import PropTypes from 'prop-types'
-import fetch from 'isomorphic-unfetch'
 import styled from 'styled-components'
 import ReactMarkDown from 'react-markdown'
-import {base64} from 'js-base64'
 import Layout from "../layouts/main";
 
 const Container = styled.div`
@@ -30,7 +30,7 @@ const DisqusContainer = styled.div`
 
 const Post = ({title, decoded, disqusShortname, disqusConfig}) => (
 	<main>
-		<Layout title={title}>
+		<Layout title={"GM Ground" + " - " + title}>
 			<Container>
 				<ReactMarkDown source={decoded}/>
 				<Link href='/'>
@@ -51,7 +51,7 @@ Post._handleNewComment = (comment) => {
 
 Post.getInitialProps = async ({req, query}) => {
 	const base64 = require('js-base64').Base64
-	const response = await fetch(`https://api.github.com/repos/gmground/${query.name}/readme`)
+	const response = await API.requestGetReadMe(query.name)
 	const json = await response.json()
 	const decoded = await base64.decode(json.content)
 	const title = query.name
@@ -66,8 +66,10 @@ Post.getInitialProps = async ({req, query}) => {
 }
 
 Post.PropTypes = {
-	title: PropTypes.string.isRequired,
-	convertMarkDown: PropTypes.string.isRequired
+	title: PropTypes.array.isRequired,
+	decoded: PropTypes.string.isRequired,
+	disqusShortname: PropTypes.string.isRequired,
+	disqusConfig: PropTypes.string.isRequired
 }
 
 export default Post

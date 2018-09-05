@@ -39,7 +39,7 @@ const ProfileColumn = styled.div`
 `
 
 const About = () => (
-	<Layout title="GM Ground">
+	<Layout title="GM Ground - About">
 		<Container>
 			<ProfileHeader>
 				<ProfileImage src="/static/profile_image.jpg" alt="Avatar"/>
