@@ -71,7 +71,8 @@ function Post({name, description, created_at}) {
 				{description}
 			</Description>
 			<ContainerFooter>
-				<Link href={{pathname: '/post', query: {name: name}}} as={`${process.env.ASSET_PREFIX}/post/${name}`}>
+				<Link href={{pathname: '/post', query: {name: name}}}
+				      as={`${process.env.ASSET_PREFIX}/post/${name}`}>
 					<Button>Read more...</Button>
 				</Link>
 			</ContainerFooter>

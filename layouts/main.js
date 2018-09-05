@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import Header from "../components/Header";
+import Header from "../components/header/Header";
 import Footer from "../components/Footer"
 import Head from 'next/head'
 import React from "react";
@@ -16,10 +16,6 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
    opacity: 1;
-	//-webkit-appearance: none;
-	//display: flex;
-	//align-items: center;
-	//flex-direction: column;
 `
 
 
@@ -40,13 +36,5 @@ function Layout({children, title}) {
 		</div>
 	)
 }
-//
-// Layout.getInitialProps = async ({query}) => {
-//
-// 	const title = query.name
-// 	console.log(title)
-//
-// 	return {title}
-// }
 
 export default Layout
