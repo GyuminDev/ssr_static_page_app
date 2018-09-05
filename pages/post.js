@@ -1,4 +1,5 @@
 import React from 'react'
+import Disqus from 'disqus-react';
 import Link from 'next/link'
 import PropTypes from 'prop-types'
 import fetch from 'isomorphic-unfetch'
@@ -22,7 +23,12 @@ const Container = styled.div`
 	}
 `
 
-const Post = ({title, decoded}) => (
+const DisqusContainer = styled.div`
+	margin-top: 30px;
+`
+
+
+const Post = ({title, decoded, disqusShortname, disqusConfig}) => (
 	<main>
 		<Layout title={title}>
 			<Container>
@@ -30,10 +36,18 @@ const Post = ({title, decoded}) => (
 				<Link href='/'>
 					<a>Go back to home</a>
 				</Link>
+				<DisqusContainer>
+					<Disqus.DiscussionEmbed shortname={disqusShortname} config={disqusConfig}/>
+				</DisqusContainer>
 			</Container>
 		</Layout>
 	</main>
 )
+
+
+Post._handleNewComment = (comment) => {
+	console.log(comment.text)
+}
 
 Post.getInitialProps = async ({req, query}) => {
 	const base64 = require('js-base64').Base64
@@ -41,8 +55,14 @@ Post.getInitialProps = async ({req, query}) => {
 	const json = await response.json()
 	const decoded = await base64.decode(json.content)
 	const title = query.name
+	const disqusShortname = 'gmground';
+	const disqusConfig = {
+		url: 'https://gyumindev.github.io/post/' + title,
+		identifier: title,
+		title: title,
+	};
 
-	return {title, decoded}
+	return {title, decoded, disqusShortname, disqusConfig}
 }
 
 Post.PropTypes = {
