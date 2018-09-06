@@ -23,13 +23,11 @@ const Container = styled.div`
 	}
 `
 
-function SideBar({visible, children}) {
-	return (
-		<Container visible={visible}>
-			{children}
-		</Container>
-	)
-}
+const SideBar = ({visible, children}) => (
+	<Container visible={visible}>
+		{children}
+	</Container>
+)
 
 
 export default SideBar

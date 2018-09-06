@@ -1,4 +1,5 @@
 import { Component } from 'react'
+import Constant from '../../lib/constant'
 import styled from 'styled-components'
 import HeaderTitle from './HeaderTitle'
 import HeaderNavigation from './HeaderNavigation'
@@ -44,8 +45,8 @@ class Header extends Component {
 		return(
 			<div>
 				<SideBar visible={visible}>
-					<SideBarImage src="/static/image_jacket.jpg"/>
-					<SideBarHeader>GM Ground</SideBarHeader>
+					<SideBarImage src={Constant.JACKET_IMAGE_URL}/>
+					<SideBarHeader>{Constant.SIDEBAR_TITLE}</SideBarHeader>
 				</SideBar>
 				<Container>
 					<BarIcon visible={visible} className="fas fa-bars fa-2x" onClick={this._onClickIcon}/>

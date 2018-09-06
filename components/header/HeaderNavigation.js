@@ -7,17 +7,15 @@ const Navigation = styled.a`
   cursor: pointer;
 `
 
-function HeaderNavigation() {
-	return (
-		<div>
-			<Link href="/">
-				<Navigation>홈</Navigation>
-			</Link>
-			<Link href="/about">
-				<Navigation>About</Navigation>
-			</Link>
-		</div>
-	)
-}
+const HeaderNavigation = () => (
+	<div>
+		<Link href="/">
+			<Navigation>홈</Navigation>
+		</Link>
+		<Link href="/about">
+			<Navigation>About</Navigation>
+		</Link>
+	</div>
+)
 
 export default HeaderNavigation

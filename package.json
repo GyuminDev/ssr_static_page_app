@@ -11,6 +11,7 @@
     "js-base64": "^2.4.9",
     "moment": "^2.22.2",
     "next": "latest",
+    "next-seo": "^1.1.2",
     "prop-types": "^15.6.2",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",

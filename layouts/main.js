@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 import Header from "../components/header/Header";
 import Footer from "../components/Footer"
-import Head from 'next/head'
 
 const Wrapper = styled.div`
 	padding: 40px 20px 20px 20px;
@@ -15,22 +14,16 @@ const Wrapper = styled.div`
 `
 
 
-function Layout({children, title}) {
-	return (
-		<div>
-			<Head>
-				<title>{title}</title>
-			</Head>
+const Layout = ({children, title}) => (
+	<div>
+		<Header/>
 
-			<Header/>
-
-			<Wrapper>
+		<Wrapper>
 			{children}
-			</Wrapper>
+		</Wrapper>
 
-			<Footer title={title}/>
-		</div>
-	)
-}
+		<Footer title={title}/>
+	</div>
+)
 
 export default Layout

@@ -1,6 +1,7 @@
-import Disqus from 'disqus-react';
+import Disqus from 'disqus-react'
+import NextSeo from "next-seo"
 import {base64} from 'js-base64'
-import API from './utils/api'
+import API from '../lib/api'
 import Link from 'next/link'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
@@ -21,29 +22,36 @@ const Container = styled.div`
     width: 90%;
 	}
 `
-
 const DisqusContainer = styled.div`
 	margin-top: 30px;
-	padding: 30px;
 `
-
-
-const Post = ({title, decoded, disqusShortname, disqusConfig}) => (
-	<main>
+const Post = ({title, description, decoded, disqusShortname, disqusConfig}) => (
 		<Layout title={"GM Ground" + " - " + title}>
+			<NextSeo
+				config={{
+					title: title,
+					description: description,
+					openGraph: {
+						url: `https://gyumindev.github.io/${title}`,
+						title: `GM Ground - ${title}`,
+						description: description,
+						images: [{
+							url: `https://gyumindev.github.io/static/image_jacket.jpg`,
+							width: 800,
+							height: 800,
+							alt: 'post image'
+						}]
+					}
+				}}
+			/>
 			<Container>
 				<ReactMarkDown source={decoded}/>
-				<Link href='/'>
-					<a>Go back to home</a>
-				</Link>
 				<DisqusContainer>
 					<Disqus.DiscussionEmbed shortname={disqusShortname} config={disqusConfig}/>
 				</DisqusContainer>
 			</Container>
 		</Layout>
-	</main>
 )
-
 
 Post._handleNewComment = (comment) => {
 	console.log(comment.text)
@@ -55,6 +63,7 @@ Post.getInitialProps = async ({req, query}) => {
 	const json = await response.json()
 	const decoded = await base64.decode(json.content)
 	const title = query.name
+	const description = query.description
 	const disqusShortname = 'gmground';
 	const disqusConfig = {
 		url: 'https://gyumindev.github.io/post/' + title,
@@ -62,7 +71,7 @@ Post.getInitialProps = async ({req, query}) => {
 		title: title,
 	};
 
-	return {title, decoded, disqusShortname, disqusConfig}
+	return {title, description, decoded, disqusShortname, disqusConfig}
 }
 
 Post.PropTypes = {

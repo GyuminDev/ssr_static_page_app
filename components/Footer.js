@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { animateScroll } from 'react-scroll'
+import {animateScroll} from 'react-scroll'
+import Constant from '../lib/constant'
 
 const Container = styled.footer` 
 	display: flex;
@@ -27,12 +28,12 @@ const _onClickTop = () => {
 	animateScroll.scrollToTop()
 }
 
-function Footer({title}) {
-	const isHome = title === 'GM Ground'
+const Footer = ({title}) => {
+	const isHome = title === 'Home'
 	return (
 		<Container>
 			<PrevIcon disabled={isHome} className="fas fa-arrow-left fa-2x" onClick={_onClickPrev}/>
-			<p>2018 Gyumin</p>
+			<p>{Constant.FOOTER_CONTENT}</p>
 			<Icon className="fas fa-arrow-up fa-2x" onClick={_onClickTop}/>
 		</Container>
 	)

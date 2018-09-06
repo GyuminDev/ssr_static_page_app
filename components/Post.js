@@ -58,27 +58,34 @@ const Button = styled.button`
 `
 
 
-function Post({name, description, created_at}) {
-	return (
-		<Container>
-			<ContainerHeader>
-				<Title center>
-					<h2>{name}</h2>
-				</Title>
-				<Created_at>{created_at}</Created_at>
-			</ContainerHeader>
-			<Description>
-				{description}
-			</Description>
-			<ContainerFooter>
-				<Link href={{pathname: '/post', query: {name: name}}}
-				      as={`${process.env.ASSET_PREFIX}/post/${name}`}>
-					<Button>Read more...</Button>
-				</Link>
-			</ContainerFooter>
-		</Container>
-	)
-}
+const Post = ({name, description, created_at}) => (
+	<Container>
+		<ContainerHeader>
+			<Title center>
+				<h2>{name}</h2>
+			</Title>
+			<Created_at>{created_at}</Created_at>
+		</ContainerHeader>
+		<Description>
+			{description}
+		</Description>
+		<ContainerFooter>
+			<Link
+				href={
+					{
+						pathname: '/post',
+						query: {
+							name: name,
+							description: description
+						}
+					}
+				}
+				as={`${process.env.ASSET_PREFIX}/post/${name}`}>
+				<Button>더 읽어보기</Button>
+			</Link>
+		</ContainerFooter>
+	</Container>
+)
 
 Post.PropTypes = {
 	name: PropTypes.string.isRequired,

@@ -11,12 +11,10 @@ const Title = styled.h2`
   cursor: pointer;
 `
 
-function HeaderTitle({title}) {
-	return (
-			<Link href="/">
-				<Title>{title}</Title>
-			</Link>
-	)
-}
+const HeaderTitle = ({title}) => (
+	<Link href="/">
+		<Title>{title}</Title>
+	</Link>
+)
 
 export default HeaderTitle

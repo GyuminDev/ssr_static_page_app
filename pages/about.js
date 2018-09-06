@@ -1,6 +1,7 @@
+import NextSeo from 'next-seo';
 import styled, {injectGlobal} from 'styled-components'
 import Layout from "../layouts/main";
-import Constant from  './utils/constant'
+import Constant from './utils/constant'
 
 injectGlobal`
 	a {
@@ -39,7 +40,24 @@ const ProfileColumn = styled.div`
 `
 
 const About = () => (
-	<Layout title="GM Ground - About">
+	<Layout title="About">
+		<NextSeo
+			config={{
+				title: 'About',
+				description: 'About Me',
+				openGraph: {
+					url: 'https://gyumindev.github.io/about',
+					title: 'GM Ground - about',
+					description: 'About me',
+					images: [{
+						url: 'http://gyumindev.github.io/static/profile_image.jpg',
+						width: 800,
+						height: 800,
+						alt: 'profile image'
+					}]
+				}
+			}}
+		/>
 		<Container>
 			<ProfileHeader>
 				<ProfileImage src={Constant.PROFILE_IMAGE_URL} alt="Avatar"/>
