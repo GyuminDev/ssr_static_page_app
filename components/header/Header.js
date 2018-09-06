@@ -1,4 +1,4 @@
-import React from 'react'
+import { Component } from 'react'
 import styled from 'styled-components'
 import HeaderTitle from './HeaderTitle'
 import HeaderNavigation from './HeaderNavigation'
@@ -31,7 +31,7 @@ const SideBarHeader = styled.h1`
 	left: 25%;
 	color: white;
 `
-class Header extends React.Component {
+class Header extends Component {
 
 	state = { visible: false }
 

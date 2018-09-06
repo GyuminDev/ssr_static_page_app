@@ -2,10 +2,6 @@ import styled from 'styled-components'
 import Header from "../components/header/Header";
 import Footer from "../components/Footer"
 import Head from 'next/head'
-import React from "react";
-import API from "../pages/utils/api";
-import Post from "../pages/post";
-
 
 const Wrapper = styled.div`
 	padding: 40px 20px 20px 20px;

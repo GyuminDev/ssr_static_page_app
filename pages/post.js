@@ -1,4 +1,3 @@
-import React from 'react'
 import Disqus from 'disqus-react';
 import {base64} from 'js-base64'
 import API from './utils/api'

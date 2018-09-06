@@ -1,6 +1,6 @@
-import React from 'react'
 import styled, {injectGlobal} from 'styled-components'
 import Layout from "../layouts/main";
+import Constant from  './utils/constant'
 
 injectGlobal`
 	a {
@@ -42,7 +42,7 @@ const About = () => (
 	<Layout title="GM Ground - About">
 		<Container>
 			<ProfileHeader>
-				<ProfileImage src="/static/profile_image.jpg" alt="Avatar"/>
+				<ProfileImage src={Constant.PROFILE_IMAGE_URL} alt="Avatar"/>
 				<br/>
 				<strong>심규민&nbsp;</strong>GyuMin Sim
 				<ProfileIcon>
