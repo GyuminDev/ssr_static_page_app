@@ -1,13 +1,10 @@
 import API from '../lib/api'
 import PropTypes from 'prop-types'
-import moment from 'moment'
 import Post from '../components/Post'
 import Layout from "../layouts/main"
 import NextSeo from "next-seo"
 
-const _getConvertDate = (date) => {
-	return moment(new Date(date)).format("YYYY-MM-DD a hh:mm") + ' created'
-}
+const _getConvertDate = (date) => API.convertDate(date)
 
 const Index = ({postList}) => (
 		<Layout title="Home">

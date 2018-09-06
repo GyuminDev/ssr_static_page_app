@@ -1,7 +1,7 @@
 import NextSeo from 'next-seo';
 import styled, {injectGlobal} from 'styled-components'
 import Layout from "../layouts/main";
-import Constant from './utils/constant'
+import Constant from '../lib/constant'
 
 injectGlobal`
 	a {
@@ -11,9 +11,6 @@ injectGlobal`
 			text-decoration: underline;
 		}
 	}
-`
-const Container = styled.div`
-
 `
 const ProfileImage = styled.img`
 	border-radius: 50%;
@@ -40,17 +37,17 @@ const ProfileColumn = styled.div`
 `
 
 const About = () => (
-	<Layout title="About">
+	<Layout title={Constant.ABOUT_TITLE}>
 		<NextSeo
 			config={{
-				title: 'About',
-				description: 'About Me',
+				title: Constant.ABOUT_TITLE,
+				description: Constant.ABOUT_DESC,
 				openGraph: {
-					url: 'https://gyumindev.github.io/about',
+					url: Constant.ABOUT_PAGE_URL,
 					title: 'GM Ground - about',
-					description: 'About me',
+					description: Constant.ABOUT_DESC,
 					images: [{
-						url: 'http://gyumindev.github.io/static/profile_image.jpg',
+						url: Constant.BASE_URL + Constant.PROFILE_IMAGE_URL,
 						width: 800,
 						height: 800,
 						alt: 'profile image'
@@ -58,34 +55,32 @@ const About = () => (
 				}
 			}}
 		/>
-		<Container>
-			<ProfileHeader>
-				<ProfileImage src={Constant.PROFILE_IMAGE_URL} alt="Avatar"/>
+		<ProfileHeader>
+			<ProfileImage src={Constant.PROFILE_IMAGE_URL} alt="Avatar"/>
+			<br/>
+			<strong>심규민&nbsp;</strong>GyuMin Sim
+			<ProfileIcon>
+				<a href={Constant.EMAIL}><i className="far fa-envelope fa-2x" /></a>&nbsp;&nbsp;
+				<a href={Constant.FACEBOOK}><i className="fab fa-facebook-square fa-2x" /></a>&nbsp;&nbsp;
+				<a href={Constant.GITHUB}><i className="fab fa-github-alt fa-2x" /></a>
+			</ProfileIcon>
+		</ProfileHeader>
+		<ProfileColumn>
+			<p>
+				블로그에는 공부와 업무를 하며 알게된 내용과 관심 분야를 주제로 포스팅 하고 있습니다.
 				<br/>
-				<strong>심규민&nbsp;</strong>GyuMin Sim
-				<ProfileIcon>
-					<a href="http://pleasure082@gmail.com"><i className="far fa-envelope fa-2x"></i></a>&nbsp;&nbsp;
-					<a href="http://www.facebook.com/sim.gyumin"><i className="fab fa-facebook-square fa-2x"></i></a>&nbsp;&nbsp;
-					<a href="http://github.com/GyuminDev"><i className="fab fa-github-alt fa-2x"></i></a>
-				</ProfileIcon>
-			</ProfileHeader>
-			<ProfileColumn>
-				<p>
-					블로그에는 공부와 업무를 하며 알게된 내용과 관심 분야를 주제로 포스팅 하고 있습니다.
-					<br/>
-					다른 의견이나 질문, 또는 내용의 대한 피드백은 언제나 환영합니다 :)
-				</p>
-			</ProfileColumn>
-			<ProfileColumn>
-				<h3>프로젝트</h3>
-				<h4>2018</h4>
-				사내 솔루션 개발 ing
-				<h4>2017</h4>
-				MyDoctor - 머신러닝을 활용한 Health-Care Solution
-				<br/>
-				한OOOO - Mobile Viewer 제작 참여(인턴) 09.01 ~ 12.15
-			</ProfileColumn>
-		</Container>
+				다른 의견이나 질문, 또는 내용의 대한 피드백은 언제나 환영합니다 :)
+			</p>
+		</ProfileColumn>
+		<ProfileColumn>
+			<h3>프로젝트</h3>
+			<h4>2018</h4>
+			사내 솔루션 개발 ing
+			<h4>2017</h4>
+			MyDoctor - 머신러닝을 활용한 Health-Care Solution
+			<br/>
+			한OOOO - Mobile Viewer 제작 참여(인턴) 09.01 ~ 12.15
+		</ProfileColumn>
 	</Layout>
 )
 

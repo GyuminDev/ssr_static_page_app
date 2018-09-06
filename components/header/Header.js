@@ -46,7 +46,7 @@ class Header extends Component {
 			<div>
 				<SideBar visible={visible}>
 					<SideBarImage src={Constant.JACKET_IMAGE_URL}/>
-					<SideBarHeader>{Constant.SIDEBAR_TITLE}</SideBarHeader>
+					<SideBarHeader>{Constant.TITLE}</SideBarHeader>
 				</SideBar>
 				<Container>
 					<BarIcon visible={visible} className="fas fa-bars fa-2x" onClick={this._onClickIcon}/>

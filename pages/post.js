@@ -1,8 +1,8 @@
 import Disqus from 'disqus-react'
 import NextSeo from "next-seo"
 import {base64} from 'js-base64'
+import Constant from '../lib/constant'
 import API from '../lib/api'
-import Link from 'next/link'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import ReactMarkDown from 'react-markdown'
@@ -32,11 +32,11 @@ const Post = ({title, description, decoded, disqusShortname, disqusConfig}) => (
 					title: title,
 					description: description,
 					openGraph: {
-						url: `https://gyumindev.github.io/${title}`,
+						url: Constant.BASE_URL + title,
 						title: `GM Ground - ${title}`,
 						description: description,
 						images: [{
-							url: `https://gyumindev.github.io/static/image_jacket.jpg`,
+							url: Constant.BASE_URL + Constant.JACKET_IMAGE_URL,
 							width: 800,
 							height: 800,
 							alt: 'post image'
@@ -62,11 +62,13 @@ Post.getInitialProps = async ({req, query}) => {
 	const response = await API.requestGetReadMe(query.name)
 	const json = await response.json()
 	const decoded = await base64.decode(json.content)
+
 	const title = query.name
 	const description = query.description
+
 	const disqusShortname = 'gmground';
 	const disqusConfig = {
-		url: 'https://gyumindev.github.io/post/' + title,
+		url: Constant.POST_PAGE_URL + title,
 		identifier: title,
 		title: title,
 	};
