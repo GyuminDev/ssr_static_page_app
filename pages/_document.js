@@ -15,7 +15,7 @@ export default class MyDocument extends Document {
 				<Head>
 					<meta charSet="utf-8"/>
 					<meta name="viewport" content="initial-scale=1.0, width=device-width"/>
-					<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet" />
+					<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding" rel="stylesheet" />
 					<link rel="stylesheet" href="/static/font.css" />
 					<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
 					      integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"

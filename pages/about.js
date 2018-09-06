@@ -47,7 +47,7 @@ const About = () => (
 					title: 'GM Ground - about',
 					description: Constant.ABOUT_DESC,
 					images: [{
-						url: Constant.BASE_URL + Constant.PROFILE_IMAGE_URL,
+						url: Constant.BASE_URL + 'static/profile_image.jpg',
 						width: 800,
 						height: 800,
 						alt: 'profile image'
@@ -56,7 +56,7 @@ const About = () => (
 			}}
 		/>
 		<ProfileHeader>
-			<ProfileImage src={Constant.PROFILE_IMAGE_URL} alt="Avatar"/>
+			<ProfileImage src={Constant.BASE_URL + 'static/profile_image.jpg'} alt="Avatar"/>
 			<br/>
 			<strong>심규민&nbsp;</strong>GyuMin Sim
 			<ProfileIcon>

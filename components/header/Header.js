@@ -45,7 +45,7 @@ class Header extends Component {
 		return(
 			<div>
 				<SideBar visible={visible}>
-					<SideBarImage src={Constant.JACKET_IMAGE_URL}/>
+					<SideBarImage src="static/image_jacket.jpg" />
 					<SideBarHeader>{Constant.TITLE}</SideBarHeader>
 				</SideBar>
 				<Container>

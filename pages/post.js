@@ -35,12 +35,6 @@ const Post = ({title, description, decoded, disqusShortname, disqusConfig}) => (
 						url: Constant.BASE_URL + title,
 						title: `GM Ground - ${title}`,
 						description: description,
-						images: [{
-							url: Constant.BASE_URL + Constant.JACKET_IMAGE_URL,
-							width: 800,
-							height: 800,
-							alt: 'post image'
-						}]
 					}
 				}}
 			/>

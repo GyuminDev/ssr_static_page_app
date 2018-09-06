@@ -12,8 +12,6 @@ const Wrapper = styled.div`
   flex-direction: column;
    opacity: 1;
 `
-
-
 const Layout = ({children, title}) => (
 	<div>
 		<Header/>
