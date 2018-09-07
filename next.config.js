@@ -53,7 +53,7 @@ module.exports = {
     }
 	  xml += '</urlset>'
 
-	  let robot = 'User-agent: *\n' + 'Disallow: /'
+	  let robot = 'User-agent: *\n' + 'Allow: /'
 
 	  fs.writeFileSync('./static/sitemap.xml', xml)
 	  fs.writeFileSync('./static/robots.txt', robot)
