@@ -38,7 +38,6 @@ const Footer = ({title}) => {
 		</Container>
 	)
 }
-
 Footer.propTypes = {
 	title: PropTypes.string.isRequired
 }

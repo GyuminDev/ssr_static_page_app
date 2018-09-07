@@ -3,6 +3,7 @@ import Constant from '../../lib/constant'
 import styled from 'styled-components'
 import HeaderTitle from './HeaderTitle'
 import HeaderNavigation from './HeaderNavigation'
+import ScrollLock from 'react-scrolllock';
 import SideBar from './SideBar'
 
 const Container = styled.div`
@@ -41,12 +42,14 @@ class Header extends Component {
 	}
 
 	render() {
-		const {visible} = this.state
+		const { visible } = this.state
+
 		return(
 			<div>
 				<SideBar visible={visible}>
-					<SideBarImage src="static/image_jacket.jpg" />
+					<SideBarImage src="/static/image_jacket.jpg" />
 					<SideBarHeader>{Constant.TITLE}</SideBarHeader>
+					{visible ? <ScrollLock /> : ''}
 				</SideBar>
 				<Container>
 					<BarIcon visible={visible} className="fas fa-bars fa-2x" onClick={this._onClickIcon}/>

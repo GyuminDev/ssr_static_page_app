@@ -14,8 +14,9 @@ export default class MyDocument extends Document {
 			<html>
 				<Head>
 					<meta charSet="utf-8"/>
+					<meta name="google-site-verification" content="10J968HKOHy9lsJe8mHJ2FcxSCrCE83rgtoR10aO1c4" />
 					<meta name="viewport" content="initial-scale=1.0, width=device-width"/>
-					<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding" rel="stylesheet" />
+					<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR" rel="stylesheet" />
 					<link rel="stylesheet" href="/static/font.css" />
 					<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
 					      integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
