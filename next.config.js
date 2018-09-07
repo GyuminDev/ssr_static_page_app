@@ -8,12 +8,11 @@ const assetPrefix = isProd ? '' : ''
 
 module.exports = {
   async exportPathMap () {
-    // we fetch our list of posts, this allow us to dynamically generate the exported pages
+    // Repo 목록 Fetch
     const response = await fetch('https://api.github.com/users/gmground/repos')
     const postList = await response.json()
 
-
-    // tranform the list of posts into a map of pages with the pathname `/post/:id`
+    // Repo 제목에 대응된 Object Array 생성
     const pages = postList.reduce(
       (pages, post) =>
         Object.assign({}, pages, {
@@ -27,11 +26,13 @@ module.exports = {
       {}
     )
 
+	  // page 병합
     const pathMap = Object.assign({}, pages, {
 	    '/': { page: '/' },
 	    '/about': { page: '/about'}
     })
 
+	  // Sitemap.xml 동적생성
 	  let pageList = []
     for(let path in pathMap ) {
       pageList.push(path)
@@ -55,9 +56,9 @@ module.exports = {
 	  let robot = 'User-agent: *\n' + 'Disallow: /'
 
 	  fs.writeFileSync('./static/sitemap.xml', xml)
-	  fs.writeFileSync('./static/robot.txt', robot)
+	  fs.writeFileSync('./static/robots.txt', robot)
 
-	  // combine the map of post pages with the home
+
     return pathMap
   },
   assetPrefix: assetPrefix,

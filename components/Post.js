@@ -71,6 +71,7 @@ const Post = ({name, description, created_at}) => (
 		</Description>
 		<ContainerFooter>
 			<Link
+				prefetch
 				href={
 					{
 						pathname: '/post',

@@ -9,10 +9,10 @@ const Navigation = styled.a`
 
 const HeaderNavigation = () => (
 	<div>
-		<Link href="/">
+		<Link prefetch href="/">
 			<Navigation>홈</Navigation>
 		</Link>
-		<Link href="/about">
+		<Link prefetch href="/about">
 			<Navigation>About</Navigation>
 		</Link>
 	</div>
