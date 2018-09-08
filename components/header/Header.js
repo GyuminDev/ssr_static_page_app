@@ -38,7 +38,7 @@ class Header extends Component {
 	state = { visible: false }
 
 	_onClickIcon = () => {
-		this.setState({visible: !this.state.visible})
+		this.setState( { visible: !this.state.visible } )
 	}
 
 	render() {

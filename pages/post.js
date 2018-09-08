@@ -57,8 +57,7 @@ Post.getInitialProps = async ({req, query}) => {
 	const json = await response.json()
 	const decoded = await base64.decode(json.content)
 
-	const title = query.name
-	const description = query.description
+	const { name: title, description } = query
 
 	const disqusShortname = 'gmground';
 	const disqusConfig = {
