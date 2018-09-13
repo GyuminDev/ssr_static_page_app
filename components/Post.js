@@ -44,25 +44,30 @@ const Description = styled.div`
 `
 const ContainerFooter = styled.div`
 	display: flex;
+	margin-top: 15px;
 	flex-direction: row;
+	align-items: flex-end;
 	justify-content: space-between;
 `
 const Button = styled.button`
-	margin-top: 10px;
 	padding: 10px;
+	height: 30px;
+	line-height: 10px;
 	background-color: #2c3e50;
 	color: white;
 	font-weight: 100;
   cursor: pointer;
+  white-space: nowrap;
 `
 const TopicContainer = styled.div`
 	display: flex;
+	flex-wrap: wrap;
 	align-items: flex-end;
 `
 
 const Topic = styled.div`
-    display: inline-block;
-    padding: 0 25px;
+    display: flex;
+    padding: 0 10px;
     margin-right: 5px;
     height: 25px;
     font-size: 12px;
@@ -86,7 +91,7 @@ const Post = ({name, description, created_at, topics}) => (
 		<ContainerFooter>
 			<TopicContainer>
 			{topics.map(topic =>
-				<Topic>{topic}</Topic>)}
+				<Topic key={topic}>{topic}</Topic>)}
 			</TopicContainer>
 			<Link
 				prefetch

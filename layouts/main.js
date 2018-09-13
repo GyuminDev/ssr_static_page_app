@@ -10,7 +10,7 @@ const Wrapper = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
-   opacity: 1;
+  opacity: 1;
 `
 const Layout = ({children, title}) => (
 	<div>
