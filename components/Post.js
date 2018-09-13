@@ -81,7 +81,7 @@ const Post = ({name, description, created_at, topics}) => (
 	<Container>
 		<ContainerHeader>
 			<Title center>
-				<h2>{name}</h2>
+				<h2>{topics.includes('fork') ? name + ' [스크랩]' : name }</h2>
 			</Title>
 			<Created_at>{created_at}</Created_at>
 		</ContainerHeader>
