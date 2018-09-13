@@ -7,19 +7,21 @@ import NextSeo from "next-seo"
 const _getConvertDate = (date) => API.convertDate(date)
 
 const Index = ({postList}) => (
-		<Layout title="Home">
-			<NextSeo
-				config={{
-					title: 'Home'
-				}}
-			/>
-				{postList.map(post =>
-					<Post name={post.name}
-					      description={post.description}
-					      created_at={_getConvertDate(post.created_at)}
-					      key={post.name}
-					/>)}
-		</Layout>
+	<Layout title="Home">
+		<NextSeo
+			config={{
+				title: 'Home'
+			}}
+		/>
+
+		{postList.map(post =>
+			<Post name={post.name}
+			      description={post.description}
+			      created_at={_getConvertDate(post.created_at)}
+			      topics={post.topics}
+			      key={post.name}
+			/>)}
+	</Layout>
 )
 
 Index.getInitialProps = async () => {

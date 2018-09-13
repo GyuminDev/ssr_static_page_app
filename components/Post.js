@@ -44,11 +44,10 @@ const Description = styled.div`
 `
 const ContainerFooter = styled.div`
 	display: flex;
-	justify-content: end;
-	flex-direction: column;
+	flex-direction: row;
+	justify-content: space-between;
 `
 const Button = styled.button`
-	align-self: flex-end;
 	margin-top: 10px;
 	padding: 10px;
 	background-color: #2c3e50;
@@ -56,9 +55,24 @@ const Button = styled.button`
 	font-weight: 100;
   cursor: pointer;
 `
+const TopicContainer = styled.div`
+	display: flex;
+	align-items: flex-end;
+`
+
+const Topic = styled.div`
+    display: inline-block;
+    padding: 0 25px;
+    margin-right: 5px;
+    height: 25px;
+    font-size: 12px;
+    line-height: 25px;
+    border-radius: 25px;
+    background-color: #f1f1f1;
+`
 
 
-const Post = ({name, description, created_at}) => (
+const Post = ({name, description, created_at, topics}) => (
 	<Container>
 		<ContainerHeader>
 			<Title center>
@@ -70,6 +84,10 @@ const Post = ({name, description, created_at}) => (
 			{description}
 		</Description>
 		<ContainerFooter>
+			<TopicContainer>
+			{topics.map(topic =>
+				<Topic>{topic}</Topic>)}
+			</TopicContainer>
 			<Link
 				prefetch
 				href={
